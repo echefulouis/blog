@@ -26,8 +26,8 @@ Route::get('/', 'BlogController@home')->name('home');
 Route::get('/about', 'BlogController@about')->name('about');
 
 Route::get('/contact','BlogController@contact' )->name('contact');
-
+Route::post('/contact','BlogController@store' )->name('contact.store');
 Route::get('/blog', 'BlogController@blog')->name('blog');
 
-Route::get('/post-details', 'BlogControllers@details')->name('post-details');
+Route::get('/post-details', 'BlogController@details')->name('post-details');
 

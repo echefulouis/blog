@@ -22,14 +22,14 @@
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="{{route('index')}}"><h2>Stand Blog<em>.</em></h2></a>
+          <a class="navbar-brand" href="{{route('home')}}"><h2>Stand Blog<em>.</em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="{{route('index')}}">Home
+                <a class="nav-link" href="{{route('home')}}">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
@@ -37,7 +37,7 @@
                 <a class="nav-link" href="{{route('about')}}">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{route('about')}}">Blog Entries</a>
+                <a class="nav-link" href="{{route('blog')}}">Blog Entries</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="{{route('post-details')}}">Post Details</a>
@@ -69,6 +69,32 @@
     </div>
     
     <!-- Banner Ends Here -->
+
+    <table>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+      @if(count($data)>0)
+
+        @foreach($data as $my)
+          <tr>
+            <td>{{$loop->index+1}}</td>
+            <td>{{$my->name}}</td>
+            <td>{{$my->email}}</td>
+            <td><a href="#">Delete</a></td>
+          </tr>
+        @endforeach
+      @else
+          <tr>
+            No Data Yet
+          </tr>
+      @endif
+    </table>
+
+
 
     <section class="call-to-action">
       <div class="container">
