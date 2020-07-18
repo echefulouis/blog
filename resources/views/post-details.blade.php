@@ -84,7 +84,7 @@
             <td>{{$loop->index+1}}</td>
             <td>{{$my->name}}</td>
             <td>{{$my->email}}</td>
-            <td><a href="#">Delete</a></td>
+            <td><a href="{{route('edit',$my->id)}}">Edit</a>||<a href="{{route('delete',$my->id)}}">Delete</a></td>
           </tr>
         @endforeach
       @else

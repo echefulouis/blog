@@ -37,4 +37,24 @@ class BlogController extends Controller
         $data=blogusers::all();
         return view('post-details', compact('data'));
     }
+
+    public function edit ($id) {
+        $data=blogusers::whereId($id)->first();
+    
+        return view('postdetailsedit', compact('data'));
+    }
+
+    public function update (request $request,$id) {
+        $user=blogusers::whereId($id)->first();
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->save();
+        return redirect()->route('post-details');
+    }
+
+    public function delete (request $request,$id) {
+        $user=blogusers::whereId($id)->first();
+        $user->delete();
+        return redirect()->route('post-details');
+    }
 }

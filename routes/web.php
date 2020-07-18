@@ -27,6 +27,15 @@ Route::get('/about', 'BlogController@about')->name('about');
 
 Route::get('/contact','BlogController@contact' )->name('contact');
 Route::post('/contact','BlogController@store' )->name('contact.store');
+// For the edit
+Route::get('/contact/{id}','BlogController@edit' )->name('edit');
+
+// For the Update
+Route::post('/contact/{id}','BlogController@update' )->name('update');
+
+// For the delete
+Route::get('/contact/{id}/delete','BlogController@delete' )->name('delete');
+
 Route::get('/blog', 'BlogController@blog')->name('blog');
 
 Route::get('/post-details', 'BlogController@details')->name('post-details');
